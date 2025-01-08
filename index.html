@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Excuses</title>
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #0f172a;  /* Slate 900 */
+            color: #f1f5f9;  /* Slate 100 */
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 36rem;
+            padding: 2rem;
+            background-color: #1e293b;  /* Slate 800 */
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-2px);
+        }
+
+        .excuse {
+            font-size: clamp(1.25rem, 3vw, 1.875rem);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            letter-spacing: -0.025em;
+        }
+
+        .reload {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            background-color: #10b981;  /* Emerald 500 */
+            color: #ffffff;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            letter-spacing: 0.025em;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .reload:hover {
+            background-color: #059669;  /* Emerald 600 */
+            transform: translateY(-1px);
+            box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        .reload:active {
+            transform: translateY(0);
+        }
+
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: #f8fafc;  /* Slate 50 */
+                color: #0f172a;  /* Slate 900 */
+            }
+            
+            .container {
+                background-color: #ffffff;
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            }
+        }
+
+        footer {
+            margin-top: 2rem;
+            font-size: 0.875rem;
+            color: #94a3b8; /* Slate 400 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="excuse" id="excuse">Loading your next excuse...</div>
+        <button class="reload" onclick="location.reload()">Give Me Another Excuse</button>
+    </div>
+    <script>
+        const excuses = [
+            "The code works on my machine!",
+            "I swear, it was working yesterday.",
+            "Must be a caching issue.",
+            "It’s not a bug, it’s a feature.",
+            "The client changed the requirements again!",
+            "The database must be down.",
+            "I think the server farted.",
+            "Did you try restarting it?",
+            "Looks like a networking problem.",
+            "I forgot to commit that change.",
+            "Oh, I thought we didn’t need that feature anymore.",
+            "There’s no way this is my fault.",
+            "Damn, I left the debug logs in production!",
+            "I’m pretty sure this is a library issue.",
+            "The tests didn’t cover that edge case.",
+            "Works for me, must be your system.",
+            "The API docs were outdated.",
+            "The junior dev pushed that change!",
+            "I was on lunch when that happened.",
+            "Oh crap, I forgot to save before deploying.",
+            "This is why we can’t have nice things.",
+            "I didn’t write that part of the code.",
+            "Must be a race condition. Damn those threads!",
+            "I was drunk when I coded that.",
+            "Well, I copied it straight from StackOverflow!",
+            "Looks fine in dark mode.",
+            "That’s how Agile works, I guess.",
+            "I thought QA would catch that.",
+            "I blame Jenkins.",
+            "It’s obviously an AI hallucination.",
+            "The cat walked over my keyboard.",
+            "The user is holding it wrong.",
+            "It’s a full moon; weird stuff happens in production.",
+            "This isn’t a priority right now.",
+            "Damn, someone hardcoded that again.",
+            "It works, but only on Tuesdays.",
+            "You wanted that done today?",
+            "Looks like a cosmic ray hit the server.",
+            "I think Mercury is in retrograde.",
+            "I had a fight with Git. Git won.",
+            "That wasn’t in the requirements doc!",
+            "Shit, I didn’t think anyone would actually use that button.",
+            "Blame the intern.",
+            "Oh, it’s a timezone issue!",
+            "Wait, that’s not supposed to happen.",
+            "It compiles, so it’s fine, right?",
+            "Let’s call this a learning opportunity.",
+            "I was in a rush to push the hotfix.",
+            "It worked when I tested it in localhost.",
+            "That’s not a bug, that’s an undocumented feature.",
+            "Damn it, I merged the wrong branch.",
+            "Oh shit, I forgot to turn off debug mode.",
+            "Wait, is this production?",
+            "It was the old codebase’s fault!",
+            "Let’s just call it tech debt and move on.",
+            "I wasn’t even assigned to this task.",
+            "Oh, that’s not even in my department.",
+            "The last guy wrote that. Not me!",
+            "I was promised unit tests would save us.",
+            "This can’t be a problem on my end.",
+            "It’s a data problem, not a code problem.",
+            "What do you mean you didn’t back up the database?",
+            "You wanted it to be fast *and* accurate?",
+            "I was multitasking, OK?!",
+            "I was debugging in prod. My bad.",
+            "The logs were too long, so I didn’t check them.",
+            "You never said it needed to scale!",
+            "Shit, I left a `console.log()` in there.",
+            "It’s not a real issue if no one reports it!",
+            "I thought we were supposed to fake it until we make it!",
+            "Let’s just hotfix it. Again."
+        ];
+
+        const randomExcuse = excuses[Math.floor(Math.random() * excuses.length)];
+        document.getElementById("excuse").textContent = randomExcuse;
+    </script>
+</body>
+</html>
